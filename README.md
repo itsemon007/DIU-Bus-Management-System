@@ -8,8 +8,8 @@ A database-driven, web-ready system to organize university transportation—cove
 
 ## ✨ Key Features
 
-- **Route & Bus Assignment:** Track which bus serves which route with distance and ETA fields.
-- **Seating & Priority:** Capacity-aware seat allocation with priority for teachers and staff.
+- **Route & Bus Assignment:** Assign which bus serves which route and store distance.
+- **Seating & Priority:** Capacity-aware seat allocation with priority for teachers.
 - **Schedules:** Day-wise arrival times per bus & route.
 - **Maintenance Logs:** Costs, issue descriptions, and next due dates (weak entity tied to `Bus`).
 - **Role Views:** Students, teachers, and admins access the data they need.
@@ -18,25 +18,24 @@ A database-driven, web-ready system to organize university transportation—cove
 
 ## 🧱 Data Model (ER → Relational)
 
-### Entities (PK 🔑, FK 🔗)
 
 **Bus**  
-- `bus_id` 🔑, `bus_number`, `bus_type`, `capacity`, `registration_number`, `bus_name`
+- `bus_id`, `bus_number`, `bus_type`, `capacity`, `registration_number`, `bus_name`
 
 **Route**  
-- `route_id` 🔑, `route_name`, `start_point`, `end_point`, `total_distance`, `estimate_time`, `bus_id` 🔗
+- `route_id`, `route_name`, `start_point`, `end_point`, `total_distance`, `estimate_time`, `bus_id`
 
 **Student**  
-- `student_id` 🔑, `s_name`, `roll_number`, `department`, `phone_number`, `email`, `address`, `pickup_point`, `bus_id` 🔗, `route_id` 🔗
+- `student_id`, `s_name`, `roll_number`, `department`, `phone_number`, `email`, `address`, `pickup_point`, `bus_id`, `route_id`
 
 **Teacher**  
-- `teacher_id` 🔑, `t_name`, `department`, `phone_number`, `email`, `address`, `pickup_point`, `bus_id` 🔗, `route_id` 🔗
+- `teacher_id`, `t_name`, `department`, `phone_number`, `email`, `address`, `pickup_point`, `bus_id`, `route_id`
 
 **Bus_Schedule**  
-- `schedule_id` 🔑, `bus_id` 🔗, `route_id` 🔗, `arrival_time`, `day_of_week`
+- `schedule_id`, `bus_id`, `route_id` , `arrival_time`, `day_of_week`
 
 **Maintenance** (Weak)  
-- `maintenance_id` 🔑, `bus_id` 🔗, `maintenance_date`, `maintenance_type`, `issue_description`, `cost`, `next_due_date`
+- `maintenance_id` , `bus_id` , `maintenance_date`, `maintenance_type`, `issue_description`, `cost`, `next_due_date`
 
 ---
 
