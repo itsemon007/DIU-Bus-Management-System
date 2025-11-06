@@ -4,7 +4,7 @@ A database-driven, web-ready system to organize university transportation—cove
 
 > Built for the Database Management System course (Course Code: 0612-303) at Dhaka International University.
 
----
+----
 
 ##  Key Features
 
@@ -37,7 +37,7 @@ A database-driven, web-ready system to organize university transportation—cove
 **Maintenance** (Weak)  
 - `maintenance_id` , `bus_id` , `maintenance_date`, `maintenance_type`, `issue_description`, `cost`, `next_due_date`
 
----
+----
 
 ##  SQL Schema (MySQL)
 
